@@ -2,14 +2,14 @@ package org.angello.com.model.entities;
 
 public class Cliente {
     // Attributes
-    private int CUI;
+    private Long CUI;
     private String nombre;
     private String apellido;
-    private String telefono;
+    private int telefono;
     private String email;
 
     // Constructor
-    public Cliente(int CUI, String nombre, String apellido, String telefono, String email) {
+    public Cliente(Long CUI, String nombre, String apellido, int telefono, String email) {
         this.CUI = CUI;
         this.nombre = nombre;
         this.apellido = apellido;
@@ -18,7 +18,7 @@ public class Cliente {
     }
 
     // Getters
-    public int getCUI() {
+    public Long getCUI() {
         return CUI;
     }
 
@@ -30,7 +30,7 @@ public class Cliente {
         return apellido;
     }
 
-    public String getTelefono() {
+    public int getTelefono() {
         return telefono;
     }
 
@@ -39,7 +39,7 @@ public class Cliente {
     }
 
     // Setters
-    public void setCUI(int CUI) {
+    public void setCUI(Long CUI) {
         this.CUI = CUI;
     }
 
@@ -51,7 +51,7 @@ public class Cliente {
         this.apellido = apellido;
     }
 
-    public void setTelefono(String telefono) {
+    public void setTelefono(int telefono) {
         this.telefono = telefono;
     }
 

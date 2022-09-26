@@ -1,11 +1,11 @@
 package org.angello.com.model.entities;
 
-public class tipoVehiculo {
+public class TipoVehiculo {
     // Attributes
     private int idTipoVehiculo;
     private String nombreTipoVehiculo;
 
-    public tipoVehiculo(int idTipoVehiculo, String nombreTipoVehiculo) {
+    public TipoVehiculo(int idTipoVehiculo, String nombreTipoVehiculo) {
         this.idTipoVehiculo = idTipoVehiculo;
         this.nombreTipoVehiculo = nombreTipoVehiculo;
     }

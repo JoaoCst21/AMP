@@ -9,10 +9,10 @@ public class Renta {
     private Date fechaInicio;
     private Date fechaFinal;
     private String _vehiculoPlaca;
-    private int _clienteCUI;
+    private Long _clienteCUI;
 
     // Constructor
-    public Renta(int idRenta, Double costo, Date fechaInicio, Date fechaFinal, String _vehiculoPlaca, int _clienteCUI) {
+    public Renta(int idRenta, Double costo, Date fechaInicio, Date fechaFinal, String _vehiculoPlaca, Long _clienteCUI) {
         this.idRenta = idRenta;
         this.costo = costo;
         this.fechaInicio = fechaInicio;
@@ -42,7 +42,7 @@ public class Renta {
         return _vehiculoPlaca;
     }
 
-    public int get_clienteCUI() {
+    public Long get_clienteCUI() {
         return _clienteCUI;
     }
 
@@ -67,7 +67,7 @@ public class Renta {
         this._vehiculoPlaca = _vehiculoPlaca;
     }
 
-    public void set_clienteCUI(int _clienteCUI) {
+    public void set_clienteCUI(Long _clienteCUI) {
         this._clienteCUI = _clienteCUI;
     }
 }
