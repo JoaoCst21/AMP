@@ -33,7 +33,7 @@ public abstract class DAO<Class> implements CRUD<Class> {
 
     public abstract Class resulsetToObject(ResultSet resultSet) throws SQLException;
 
-    public abstract void setProcedureParams(PreparedStatement sp, Class Object);
+    public abstract void setProcedureParams(PreparedStatement sp, Class object) throws SQLException;
 
 
     @Override
