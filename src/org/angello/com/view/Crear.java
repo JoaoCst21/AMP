@@ -4,17 +4,33 @@
  */
 package org.angello.com.view;
 
+import org.angello.com.controller.ControllerTipoVehiculos;
+import org.angello.com.model.entities.TipoVehiculo;
+
+import javax.swing.table.DefaultTableModel;
+import java.util.ArrayList;
+
 /**
- *
  * @author Deran
  */
-public class Crear extends javax.swing.JPanel {
+public class Crear extends View<TipoVehiculo, ControllerTipoVehiculos> {
 
     /**
      * Creates new form Crear
      */
-    public Crear() {
-        initComponents();
+    //    public Crear() {
+    //        initComponents();
+    //    }
+
+    private static Crear instance;
+
+    public static Crear getInstance() {
+        if (instance == null) instance = new Crear();
+        return instance;
+    }
+
+    private Crear() {
+        super(new String[]{"ID", "Tipo vehiculo"});
     }
 
     /**
@@ -24,10 +40,12 @@ public class Crear extends javax.swing.JPanel {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    private void initComponents() {
+    protected void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        jTable1 = new javax.swing.JTable();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -35,42 +53,81 @@ public class Crear extends javax.swing.JPanel {
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("CREATE PAGE SIUUUUU");
 
+        System.out.println(data);
+        ArrayList<ArrayList<String>> tuples = modelArrToStringArr2D(data);
+        // convert to array
+        String[][] stringArray = tuples.stream().map(u -> u.toArray(new String[0])).toArray(String[][]::new);
+        jTable1.setModel(new DefaultTableModel(stringArray, column));
+        jScrollPane1.setViewportView(jTable1);
+
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 640, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel1)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel1)
+                                .addGap(99, 99, 99))
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(112, 112, 112)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addContainerGap(165, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 552, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel1)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addContainerGap()
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(39, 39, 39)
+                                .addComponent(jLabel1)
+                                .addContainerGap(152, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
+
+    @Override
+    public ArrayList<ArrayList<String>> modelArrToStringArr2D(ArrayList<TipoVehiculo> tipoVehiculos) {
+        ArrayList<ArrayList<String>> array = new ArrayList<>();
+        System.out.println(tipoVehiculos);
+        for (TipoVehiculo tipoVehiculo : tipoVehiculos) {
+            String id = String.valueOf(tipoVehiculo.getIdTipoVehiculo());
+            String name = tipoVehiculo.getNombreTipoVehiculo();
+            array.add(new ArrayList<String>() {{
+                add(id);
+                add(name);
+            }});
+        }
+        return array;
+    }
+
+    @Override
+    public TipoVehiculo arrStringToModel(ArrayList<String> tuples) {
+        int id = Integer.parseInt(tuples.get(0));
+        String name = tuples.get(1);
+
+        return new TipoVehiculo(id, name);
+    }
+
+    @Override
+    public ArrayList<String> getFormData() {
+        return null;
+    }
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JTable jTable1;
     // End of variables declaration//GEN-END:variables
 }
