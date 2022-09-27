@@ -7,7 +7,6 @@ package org.angello.com.view;
 import org.angello.com.controller.ControllerTipoVehiculos;
 import org.angello.com.model.entities.TipoVehiculo;
 
-import javax.swing.table.DefaultTableModel;
 import java.util.ArrayList;
 
 /**
@@ -53,12 +52,25 @@ public class Crear extends View<TipoVehiculo, ControllerTipoVehiculos> {
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("CREATE PAGE SIUUUUU");
 
-        System.out.println(data);
+        //        jTable1.setModel(new javax.swing.table.DefaultTableModel(
+        //            new Object [][] {
+        //                {null, null, null, null},
+        //                {null, null, null, null},
+        //                {null, null, null, null},
+        //                {null, null, null, null}
+        //            },
+        //            new String [] {
+        //                "Title 1", "Title 2", "Title 3", "Title 4"
+        //            }
+        //        ));
+
+
         ArrayList<ArrayList<String>> tuples = modelArrToStringArr2D(data);
-        // convert to array
         String[][] stringArray = tuples.stream().map(u -> u.toArray(new String[0])).toArray(String[][]::new);
-        jTable1.setModel(new DefaultTableModel(stringArray, column));
-        jScrollPane1.setViewportView(jTable1);
+        table.setModel(new javax.swing.table.DefaultTableModel(stringArray, column));
+        jScrollPane1.setViewportView(table);
+
+        btnCreate.setText("Agregar");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -69,8 +81,13 @@ public class Crear extends View<TipoVehiculo, ControllerTipoVehiculos> {
                                 .addComponent(jLabel1)
                                 .addGap(99, 99, 99))
                         .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(112, 112, 112)
-                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(112, 112, 112)
+                                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 363, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(jPanel1Layout.createSequentialGroup()
+                                                .addGap(256, 256, 256)
+                                                .addComponent(btnCreate)))
                                 .addContainerGap(165, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
@@ -78,7 +95,9 @@ public class Crear extends View<TipoVehiculo, ControllerTipoVehiculos> {
                         .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addContainerGap()
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 317, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(39, 39, 39)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(btnCreate)
+                                .addGap(8, 8, 8)
                                 .addComponent(jLabel1)
                                 .addContainerGap(152, Short.MAX_VALUE))
         );
@@ -98,7 +117,6 @@ public class Crear extends View<TipoVehiculo, ControllerTipoVehiculos> {
     @Override
     public ArrayList<ArrayList<String>> modelArrToStringArr2D(ArrayList<TipoVehiculo> tipoVehiculos) {
         ArrayList<ArrayList<String>> array = new ArrayList<>();
-        System.out.println(tipoVehiculos);
         for (TipoVehiculo tipoVehiculo : tipoVehiculos) {
             String id = String.valueOf(tipoVehiculo.getIdTipoVehiculo());
             String name = tipoVehiculo.getNombreTipoVehiculo();
@@ -125,6 +143,7 @@ public class Crear extends View<TipoVehiculo, ControllerTipoVehiculos> {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;

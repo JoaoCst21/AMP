@@ -1,6 +1,7 @@
 package org.angello.com.view;
 
 import javax.swing.JButton;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTable;
 import javax.swing.event.ListSelectionEvent;
@@ -10,8 +11,8 @@ import java.util.ArrayList;
 
 public abstract class View<Model, Controller extends org.angello.com.controller.Controller> extends JPanel {
     protected final String[] column;
-    protected JTable table;
-    protected JButton btnCreate;
+    protected JTable table = new JTable();
+    protected JButton btnCreate = new JButton();
     protected ArrayList<Model> data;
 
     public ArrayList<Model> getData() {
@@ -24,7 +25,11 @@ public abstract class View<Model, Controller extends org.angello.com.controller.
 
     public View(String[] column) {
         this.column = column;
-        // initComponents();
+    }
+
+    public void render(ArrayList<Model> models) {
+        setData(models);
+        initComponents();
     }
 
     protected abstract void initComponents();
@@ -47,6 +52,7 @@ public abstract class View<Model, Controller extends org.angello.com.controller.
         table.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
             public void valueChanged(ListSelectionEvent event) {
                 // print JOptionPane asking if delete or update
+                JOptionPane.showMessageDialog(null, "SIUUUUUU", "xd", JOptionPane.INFORMATION_MESSAGE);
                 int option = 0;
                 if (option == 0) return;
                 if (option == 1) {

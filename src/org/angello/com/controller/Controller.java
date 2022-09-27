@@ -14,12 +14,6 @@ public abstract class Controller<Model, Dao extends DAO, PanelView extends View>
         this.dao = dao;
         this.view = view;
         this.titleError = titleError;
-        try {
-            view.setData(dao.readAll());
-            System.out.println("Works?????");
-        } catch (Exception e) {
-            System.out.println("DONTWorks?????");
-        }
         subscribe();
     }
 
@@ -55,6 +49,15 @@ public abstract class Controller<Model, Dao extends DAO, PanelView extends View>
             view.update(dao.readAll());
         } catch (Exception e) {
             JOptionPane.showMessageDialog(null, e.getMessage(), "Eliminar " + titleError + " Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }
+
+    public void initView() {
+        try {
+            view.render(dao.readAll());
+        } catch (Exception e) {
+            e.printStackTrace();
+            JOptionPane.showMessageDialog(null, e.getMessage(), "Something Really Bad Happen", JOptionPane.ERROR_MESSAGE);
         }
     }
 }

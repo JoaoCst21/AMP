@@ -13,9 +13,9 @@ public class Conexion {
     private Conexion() {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver").newInstance();
-            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/URL?useSSL=false", "root", "root");
+            connection = DriverManager.getConnection("jdbc:mysql://localhost:3306/rentavehiculos?useSSL=false", "root", "root");
         } catch (SQLException | ClassNotFoundException | InstantiationException | IllegalAccessException e) {
-
+            e.printStackTrace();
         }
     }
 
