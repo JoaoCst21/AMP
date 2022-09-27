@@ -2,11 +2,10 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
-package org.angello.com.views;
+package org.angello.com.view;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
-import static java.lang.System.exit;
 import javax.swing.JPanel;
 
 /**
