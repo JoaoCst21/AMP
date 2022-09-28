@@ -2,7 +2,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JPanel.java to edit this template
  */
-package org.angello.com.view;
+package org.angello.com.view.pages;
 
 import org.angello.com.controller.ControllerTipoVehiculos;
 import org.angello.com.model.entities.TipoVehiculo;
@@ -10,17 +10,13 @@ import org.angello.com.model.entities.TipoVehiculo;
 import java.util.ArrayList;
 
 /**
- * @author Deran
+ * @author Angello
  */
 public class Crear extends View<TipoVehiculo, ControllerTipoVehiculos> {
 
     /**
      * Creates new form Crear
      */
-    //    public Crear() {
-    //        initComponents();
-    //    }
-
     private static Crear instance;
 
     public static Crear getInstance() {
@@ -29,7 +25,17 @@ public class Crear extends View<TipoVehiculo, ControllerTipoVehiculos> {
     }
 
     private Crear() {
-        super(new String[]{"ID", "Tipo vehiculo"});
+        super(new String[]{"ID", "Tipo vehiculo"}, "Tipo Vehiculo");
+    }
+
+    // Its Necessary Because of The initComponent method, that this method is implemented here
+    @Override
+    public void render(ArrayList<TipoVehiculo> tipoVehiculos) {
+        setData(tipoVehiculos);
+        initComponents();
+        myInitComponents();
+        revalidate();
+        repaint();
     }
 
     /**
@@ -39,12 +45,13 @@ public class Crear extends View<TipoVehiculo, ControllerTipoVehiculos> {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
-    protected void initComponents() {
+    private void initComponents() {
 
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTable1 = new javax.swing.JTable();
+        //        table = new javax.swing.JTable();
+        //        btnCreate = new javax.swing.JButton();
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -52,22 +59,14 @@ public class Crear extends View<TipoVehiculo, ControllerTipoVehiculos> {
         jLabel1.setForeground(new java.awt.Color(0, 0, 0));
         jLabel1.setText("CREATE PAGE SIUUUUU");
 
-        //        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-        //            new Object [][] {
-        //                {null, null, null, null},
-        //                {null, null, null, null},
-        //                {null, null, null, null},
-        //                {null, null, null, null}
-        //            },
-        //            new String [] {
-        //                "Title 1", "Title 2", "Title 3", "Title 4"
-        //            }
-        //        ));
-
-
-        ArrayList<ArrayList<String>> tuples = modelArrToStringArr2D(data);
-        String[][] stringArray = tuples.stream().map(u -> u.toArray(new String[0])).toArray(String[][]::new);
-        table.setModel(new javax.swing.table.DefaultTableModel(stringArray, column));
+        table.setModel(new javax.swing.table.DefaultTableModel(
+                new Object[][]{
+                        {null}
+                },
+                new String[]{
+                        "Title 1"
+                }
+        ));
         jScrollPane1.setViewportView(table);
 
         btnCreate.setText("Agregar");
@@ -117,6 +116,7 @@ public class Crear extends View<TipoVehiculo, ControllerTipoVehiculos> {
     @Override
     public ArrayList<ArrayList<String>> modelArrToStringArr2D(ArrayList<TipoVehiculo> tipoVehiculos) {
         ArrayList<ArrayList<String>> array = new ArrayList<>();
+
         for (TipoVehiculo tipoVehiculo : tipoVehiculos) {
             String id = String.valueOf(tipoVehiculo.getIdTipoVehiculo());
             String name = tipoVehiculo.getNombreTipoVehiculo();
@@ -130,23 +130,26 @@ public class Crear extends View<TipoVehiculo, ControllerTipoVehiculos> {
 
     @Override
     public TipoVehiculo arrStringToModel(ArrayList<String> tuples) {
-        int id = Integer.parseInt(tuples.get(0));
-        String name = tuples.get(1);
+
+        int id = Integer.parseInt(String.valueOf(table.getValueAt(table.getSelectedRow(), 0)));
+        String name = tuples.get(0);
 
         return new TipoVehiculo(id, name);
     }
 
     @Override
-    public ArrayList<String> getFormData() {
-        return null;
+    public TipoVehiculo arrStringToModel(ArrayList<String> tuples, boolean isFormFormat) {
+        if (!isFormFormat) return arrStringToModel(tuples);
+        String name = tuples.get(0);
+
+        return new TipoVehiculo(0, name);
     }
 
-
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
+    //    javax.swing.JButton btnCreate;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable jTable1;
+    //    private javax.swing.JTable table;
     // End of variables declaration//GEN-END:variables
 }

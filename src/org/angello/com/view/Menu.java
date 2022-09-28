@@ -4,6 +4,12 @@
  */
 package org.angello.com.view;
 
+import org.angello.com.view.pages.Clientes;
+import org.angello.com.view.pages.Crear;
+import org.angello.com.view.pages.Rentar;
+import org.angello.com.view.pages.Usuarios;
+import org.angello.com.view.pages.VehiculosRentados;
+
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import java.awt.Color;

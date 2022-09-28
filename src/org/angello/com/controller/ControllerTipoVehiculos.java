@@ -2,7 +2,7 @@ package org.angello.com.controller;
 
 import org.angello.com.model.dao.TipoVehiculoDAO;
 import org.angello.com.model.entities.TipoVehiculo;
-import org.angello.com.view.Crear;
+import org.angello.com.view.pages.Crear;
 
 public class ControllerTipoVehiculos extends Controller<TipoVehiculo, TipoVehiculoDAO, Crear> {
 
@@ -12,7 +12,7 @@ public class ControllerTipoVehiculos extends Controller<TipoVehiculo, TipoVehicu
 
     @Override
     protected void subscribe() {
-        view.addHandlerToSave(this);
         view.addHandlerTolistenToSelectedTable(this);
+        view.addHandlerToSave(this);
     }
 }
