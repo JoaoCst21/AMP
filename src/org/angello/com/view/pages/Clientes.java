@@ -113,6 +113,24 @@ public class Clientes extends View<Cliente, ControllerCliente> {
     }// </editor-fold>//GEN-END:initComponents
 
     @Override
+    public ArrayList<String> getSelectedTuple() {
+        ArrayList<String> tuple = new ArrayList<>();
+        for (int i = 0; i < column.length; i++) {
+            tuple.add((String) table.getValueAt(table.getSelectedRow(), i));
+        }
+        return tuple;
+    }
+
+    @Override
+    protected String[] getFormFieldsTitles() {
+        ArrayList<String> titles = new ArrayList<>();
+        for (int i = 0; i < getColumn().length; i++) {
+            titles.add(getColumn()[i]);
+        }
+        return titles.toArray(new String[0]);
+    }
+
+    @Override
     public void render(ArrayList<Cliente> clientes) {
         setData(clientes);
         initComponents();
@@ -146,22 +164,18 @@ public class Clientes extends View<Cliente, ControllerCliente> {
 
     @Override
     public Cliente arrStringToModel(ArrayList<String> tuples) {
-        Long CUI = Long.valueOf(String.valueOf(table.getValueAt(table.getSelectedRow(), 0)));
-        String nombre = tuples.get(0);
-        String apellido = tuples.get(1);
-        int telefono = Integer.parseInt(tuples.get(2));
-        String email = tuples.get(3);
+        Long CUI = Long.valueOf(String.valueOf(tuples.get(0)));
+        String nombre = tuples.get(1);
+        String apellido = tuples.get(2);
+        int telefono = Integer.parseInt(tuples.get(3));
+        String email = tuples.get(4);
 
         return new Cliente(CUI, nombre, apellido, telefono, email);
     }
 
     @Override
     public Cliente arrStringToModel(ArrayList<String> tuples, boolean isFormFormat) {
-        if (!isFormFormat) return arrStringToModel(tuples);
-        Cliente cliente = arrStringToModel(tuples);
-        cliente.setCUI(0L);
-
-        return cliente;
+        return arrStringToModel(tuples);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

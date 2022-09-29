@@ -115,6 +115,26 @@ public class Rentar extends View<Renta, ControllerRenta> {
 
 
     @Override
+    public ArrayList<String> getSelectedTuple() {
+        ArrayList<String> tuple = new ArrayList<>();
+        for (int i = 0; i < column.length; i++) {
+            if (i == 0) continue;
+            tuple.add((String) table.getValueAt(table.getSelectedRow(), i));
+        }
+        return tuple;
+    }
+
+    @Override
+    protected String[] getFormFieldsTitles() {
+        ArrayList<String> titles = new ArrayList<>();
+        for (int i = 0; i < getColumn().length; i++) {
+            if (i == 0) continue;
+            titles.add(getColumn()[i]);
+        }
+        return titles.toArray(new String[0]);
+    }
+
+    @Override
     public void render(ArrayList<Renta> rentas) {
         setData(rentas);
         initComponents();
@@ -161,10 +181,13 @@ public class Rentar extends View<Renta, ControllerRenta> {
     @Override
     public Renta arrStringToModel(ArrayList<String> tuples, boolean isFormFormat) {
         if (!isFormFormat) return arrStringToModel(tuples);
-        Renta renta = arrStringToModel(tuples);
-        renta.setIdRenta(0);
+        Double costo = Double.valueOf(tuples.get(0));
+        Date fechaInicio = Date.valueOf(tuples.get(1));
+        Date fechaFinal = Date.valueOf(tuples.get(2));
+        String placa = tuples.get(3);
+        Long CUI = Long.valueOf(tuples.get(4));
 
-        return renta;
+        return new Renta(0, costo, fechaInicio, fechaFinal, placa, CUI);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
