@@ -43,7 +43,6 @@ public class Menu extends javax.swing.JFrame {
         deselectedButton(btn_rentar);
         deselectedButton(btn_vehiculos);
         deselectedButton(btn_clientes);
-        deselectedButton(btn_usuarios);
 
         LocalDate now = LocalDate.now();
         int year = now.getYear();
@@ -98,9 +97,6 @@ public class Menu extends javax.swing.JFrame {
         btn_clientes = new javax.swing.JPanel();
         clients_icon = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-        btn_usuarios = new javax.swing.JPanel();
-        users_icon = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
         content = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -150,7 +146,7 @@ public class Menu extends javax.swing.JFrame {
         jLabel5.setText("Principal");
         btn_prin.add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, 30));
 
-        Menu.add(btn_prin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 260, 270, 50));
+        Menu.add(btn_prin, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 280, 270, 50));
 
         btn_crear.setBackground(new java.awt.Color(30, 81, 40));
         btn_crear.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -171,7 +167,7 @@ public class Menu extends javax.swing.JFrame {
         jLabel17.setText("Tipo vehículo");
         btn_crear.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, 30));
 
-        Menu.add(btn_crear, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 310, -1, -1));
+        Menu.add(btn_crear, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 330, -1, -1));
 
         btn_rentar.setBackground(new java.awt.Color(30, 81, 40));
         btn_rentar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -192,7 +188,7 @@ public class Menu extends javax.swing.JFrame {
         jLabel14.setText("Rentar");
         btn_rentar.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, 30));
 
-        Menu.add(btn_rentar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 360, -1, -1));
+        Menu.add(btn_rentar, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 380, -1, -1));
 
         btn_vehiculos.setBackground(new java.awt.Color(30, 81, 40));
         btn_vehiculos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -213,7 +209,7 @@ public class Menu extends javax.swing.JFrame {
         jLabel8.setText("Vehículos");
         btn_vehiculos.add(jLabel8, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, 30));
 
-        Menu.add(btn_vehiculos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 410, -1, -1));
+        Menu.add(btn_vehiculos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 430, -1, -1));
 
         btn_clientes.setBackground(new java.awt.Color(30, 81, 40));
         btn_clientes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
@@ -234,28 +230,7 @@ public class Menu extends javax.swing.JFrame {
         jLabel10.setText("Clientes");
         btn_clientes.add(jLabel10, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, 30));
 
-        Menu.add(btn_clientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 460, -1, -1));
-
-        btn_usuarios.setBackground(new java.awt.Color(30, 81, 40));
-        btn_usuarios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
-        btn_usuarios.setPreferredSize(new java.awt.Dimension(270, 51));
-        btn_usuarios.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_usuariosMouseClicked(evt);
-            }
-        });
-        btn_usuarios.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
-
-        users_icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        users_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/angello/com/resources/miniUserIconModify.png"))); // NOI18N
-        btn_usuarios.add(users_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 30, 30));
-
-        jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
-        jLabel4.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel4.setText("Usuarios");
-        btn_usuarios.add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 10, -1, 30));
-
-        Menu.add(btn_usuarios, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 510, -1, -1));
+        Menu.add(btn_clientes, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 480, -1, -1));
 
         Background.add(Menu, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 270, 780));
 
@@ -264,12 +239,12 @@ public class Menu extends javax.swing.JFrame {
         javax.swing.GroupLayout contentLayout = new javax.swing.GroupLayout(content);
         content.setLayout(contentLayout);
         contentLayout.setHorizontalGroup(
-                contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 850, Short.MAX_VALUE)
+            contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 850, Short.MAX_VALUE)
         );
         contentLayout.setVerticalGroup(
-                contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 620, Short.MAX_VALUE)
+            contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 620, Short.MAX_VALUE)
         );
 
         Background.add(content, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, 850, 620));
@@ -277,12 +252,12 @@ public class Menu extends javax.swing.JFrame {
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(Background, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Background, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(Background, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Background, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
 
         pack();
@@ -298,7 +273,6 @@ public class Menu extends javax.swing.JFrame {
         deselectedButton(btn_crear);
         deselectedButton(btn_vehiculos);
         deselectedButton(btn_clientes);
-        deselectedButton(btn_usuarios);
     }//GEN-LAST:event_btn_rentarMouseClicked
 
     private void btn_vehiculosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_vehiculosMouseClicked
@@ -311,7 +285,6 @@ public class Menu extends javax.swing.JFrame {
         deselectedButton(btn_crear);
         deselectedButton(btn_rentar);
         deselectedButton(btn_clientes);
-        deselectedButton(btn_usuarios);
     }//GEN-LAST:event_btn_vehiculosMouseClicked
 
     private void btn_clientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_clientesMouseClicked
@@ -324,21 +297,7 @@ public class Menu extends javax.swing.JFrame {
         deselectedButton(btn_crear);
         deselectedButton(btn_rentar);
         deselectedButton(btn_vehiculos);
-        deselectedButton(btn_usuarios);
     }//GEN-LAST:event_btn_clientesMouseClicked
-
-    private void btn_usuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_usuariosMouseClicked
-        // TODO add your handling code here:
-        addPanel(usuarios);
-
-        // Changing background colors
-        selectedButton(btn_usuarios);
-        deselectedButton(btn_prin);
-        deselectedButton(btn_crear);
-        deselectedButton(btn_rentar);
-        deselectedButton(btn_vehiculos);
-        deselectedButton(btn_clientes);
-    }//GEN-LAST:event_btn_usuariosMouseClicked
 
     private void addPanel(JPanel panel) {
         // Panel configuration
@@ -372,7 +331,6 @@ public class Menu extends javax.swing.JFrame {
         deselectedButton(btn_rentar);
         deselectedButton(btn_vehiculos);
         deselectedButton(btn_clientes);
-        deselectedButton(btn_usuarios);
     }// GEN-LAST:event_btn_prinMouseClicked
 
     private void btn_crearMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_btn_crearMouseClicked
@@ -385,7 +343,6 @@ public class Menu extends javax.swing.JFrame {
         deselectedButton(btn_rentar);
         deselectedButton(btn_vehiculos);
         deselectedButton(btn_clientes);
-        deselectedButton(btn_usuarios);
     }// GEN-LAST:event_btn_crearMouseClicked
 
 
@@ -436,7 +393,6 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JPanel btn_crear;
     private javax.swing.JPanel btn_prin;
     private javax.swing.JPanel btn_rentar;
-    private javax.swing.JPanel btn_usuarios;
     private javax.swing.JPanel btn_vehiculos;
     private javax.swing.JLabel clients_icon;
     public static javax.swing.JPanel content;
@@ -448,12 +404,10 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel rent_icon;
     private javax.swing.JLabel rents_icon;
-    private javax.swing.JLabel users_icon;
     // End of variables declaration//GEN-END:variables
 }
