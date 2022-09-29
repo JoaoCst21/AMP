@@ -61,19 +61,6 @@ public class Crear extends View<TipoVehiculo, ControllerTipoVehiculos> {
         btnCreate.setText("Agregar");
 
         jPanel2.setBackground(new java.awt.Color(78, 159, 61));
-
-        table.setBackground(new java.awt.Color(255, 255, 255));
-        table.setModel(new javax.swing.table.DefaultTableModel(
-                new Object[][]{
-                        {null, null, null, null},
-                        {null, null, null, null},
-                        {null, null, null, null},
-                        {null, null, null, null}
-                },
-                new String[]{
-                        "Title 1", "Title 2", "Title 3", "Title 4"
-                }
-        ));
         jScrollPane1.setViewportView(table);
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/angello/com/resources/carro1(2) (1).png"))); // NOI18N
