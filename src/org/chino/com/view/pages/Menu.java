@@ -19,7 +19,6 @@ public class Menu extends javax.swing.JFrame {
     Rentar rentar = Rentar.getInstance();
     VehiculosRentados rentados = VehiculosRentados.getInstance();
     Clientes clientes = Clientes.getInstance();
-    Usuarios usuarios = new Usuarios();
 
     /**
      * Creates new form Menu
