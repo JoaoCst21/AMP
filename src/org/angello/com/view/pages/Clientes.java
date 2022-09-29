@@ -13,7 +13,14 @@ import java.util.ArrayList;
  * @author Deran
  */
 public class Clientes extends View<Cliente, ControllerCliente> {
-    public Clientes() {
+    private static Clientes instance;
+
+    public static Clientes getInstance() {
+        if (instance == null) instance = new Clientes();
+        return instance;
+    }
+
+    private Clientes() {
         super(new String[]{"CUI", "Nombre", "Apellido", "Telefono", "Email"}, "Clientes");
     }
 

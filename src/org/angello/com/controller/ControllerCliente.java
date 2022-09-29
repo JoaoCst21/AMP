@@ -5,8 +5,8 @@ import org.angello.com.model.entities.Cliente;
 import org.angello.com.view.pages.Clientes;
 
 public class ControllerCliente extends Controller<Cliente, Long, ClienteDAO, Clientes> {
-    public ControllerCliente(ClienteDAO dao, Clientes view, String titleError) {
-        super(dao, view, titleError);
+    public ControllerCliente() {
+        super(new ClienteDAO(), Clientes.getInstance(), "Clientes");
     }
 
     @Override
