@@ -176,6 +176,11 @@ public class Menu extends javax.swing.JFrame {
         btn_rentar.setBackground(new java.awt.Color(30, 81, 40));
         btn_rentar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_rentar.setPreferredSize(new java.awt.Dimension(270, 51));
+        btn_rentar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_rentarMouseClicked(evt);
+            }
+        });
         btn_rentar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         rent_icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -192,6 +197,11 @@ public class Menu extends javax.swing.JFrame {
         btn_vehiculos.setBackground(new java.awt.Color(30, 81, 40));
         btn_vehiculos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_vehiculos.setPreferredSize(new java.awt.Dimension(270, 51));
+        btn_vehiculos.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_vehiculosMouseClicked(evt);
+            }
+        });
         btn_vehiculos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         rents_icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -208,6 +218,11 @@ public class Menu extends javax.swing.JFrame {
         btn_clientes.setBackground(new java.awt.Color(30, 81, 40));
         btn_clientes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_clientes.setPreferredSize(new java.awt.Dimension(270, 51));
+        btn_clientes.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_clientesMouseClicked(evt);
+            }
+        });
         btn_clientes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         clients_icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -224,6 +239,11 @@ public class Menu extends javax.swing.JFrame {
         btn_usuarios.setBackground(new java.awt.Color(30, 81, 40));
         btn_usuarios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_usuarios.setPreferredSize(new java.awt.Dimension(270, 51));
+        btn_usuarios.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btn_usuariosMouseClicked(evt);
+            }
+        });
         btn_usuarios.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         users_icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -267,6 +287,58 @@ public class Menu extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btn_rentarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_rentarMouseClicked
+        // TODO add your handling code here:
+        addPanel(rentar);
+
+        // Changing background colors
+        selectedButton(btn_rentar);
+        deselectedButton(btn_prin);
+        deselectedButton(btn_crear);
+        deselectedButton(btn_vehiculos);
+        deselectedButton(btn_clientes);
+        deselectedButton(btn_usuarios);
+    }//GEN-LAST:event_btn_rentarMouseClicked
+
+    private void btn_vehiculosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_vehiculosMouseClicked
+        // TODO add your handling code here:
+        addPanel(rentados);
+
+        // Changing background colors
+        selectedButton(btn_vehiculos);
+        deselectedButton(btn_prin);
+        deselectedButton(btn_crear);
+        deselectedButton(btn_rentar);
+        deselectedButton(btn_clientes);
+        deselectedButton(btn_usuarios);
+    }//GEN-LAST:event_btn_vehiculosMouseClicked
+
+    private void btn_clientesMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_clientesMouseClicked
+        // TODO add your handling code here:
+        addPanel(clientes);
+
+        // Changing background colors
+        selectedButton(btn_clientes);
+        deselectedButton(btn_prin);
+        deselectedButton(btn_crear);
+        deselectedButton(btn_rentar);
+        deselectedButton(btn_vehiculos);
+        deselectedButton(btn_usuarios);
+    }//GEN-LAST:event_btn_clientesMouseClicked
+
+    private void btn_usuariosMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btn_usuariosMouseClicked
+        // TODO add your handling code here:
+        addPanel(usuarios);
+
+        // Changing background colors
+        selectedButton(btn_usuarios);
+        deselectedButton(btn_prin);
+        deselectedButton(btn_crear);
+        deselectedButton(btn_rentar);
+        deselectedButton(btn_vehiculos);
+        deselectedButton(btn_clientes);
+    }//GEN-LAST:event_btn_usuariosMouseClicked
 
     private void addPanel(JPanel panel) {
         // Panel configuration
@@ -316,57 +388,7 @@ public class Menu extends javax.swing.JFrame {
         deselectedButton(btn_usuarios);
     }// GEN-LAST:event_btn_crearMouseClicked
 
-    private void btn_rentarMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_btn_rentarMouseClicked
-        // TODO add your handling code here:
-        addPanel(rentar);
 
-        // Changing background colors
-        selectedButton(btn_rentar);
-        deselectedButton(btn_prin);
-        deselectedButton(btn_crear);
-        deselectedButton(btn_vehiculos);
-        deselectedButton(btn_clientes);
-        deselectedButton(btn_usuarios);
-    }// GEN-LAST:event_btn_rentarMouseClicked
-
-    private void btn_vehiculosMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_btn_vehiculosMouseClicked
-        // TODO add your handling code here:
-        addPanel(rentados);
-
-        // Changing background colors
-        selectedButton(btn_vehiculos);
-        deselectedButton(btn_prin);
-        deselectedButton(btn_crear);
-        deselectedButton(btn_rentar);
-        deselectedButton(btn_clientes);
-        deselectedButton(btn_usuarios);
-    }// GEN-LAST:event_btn_vehiculosMouseClicked
-
-    private void btn_clientesMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_btn_clientesMouseClicked
-        // TODO add your handling code here:
-        addPanel(clientes);
-
-        // Changing background colors
-        selectedButton(btn_clientes);
-        deselectedButton(btn_prin);
-        deselectedButton(btn_crear);
-        deselectedButton(btn_rentar);
-        deselectedButton(btn_vehiculos);
-        deselectedButton(btn_usuarios);
-    }// GEN-LAST:event_btn_clientesMouseClicked
-
-    private void btn_usuariosMouseClicked(java.awt.event.MouseEvent evt) {// GEN-FIRST:event_btn_usuariosMouseClicked
-        // TODO add your handling code here:
-        addPanel(usuarios);
-
-        // Changing background colors
-        selectedButton(btn_usuarios);
-        deselectedButton(btn_prin);
-        deselectedButton(btn_crear);
-        deselectedButton(btn_rentar);
-        deselectedButton(btn_vehiculos);
-        deselectedButton(btn_clientes);
-    }// GEN-LAST:event_btn_usuariosMouseClicked
 
     /**
      * @param args the command line arguments
