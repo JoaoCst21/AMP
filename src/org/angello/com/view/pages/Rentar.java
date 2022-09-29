@@ -85,37 +85,16 @@ public class Rentar extends View<Renta, ControllerRenta> {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
+    // End of variables declaration//GEN-END:variables
 
     @Override
-    public void render(ArrayList<Renta> rentas) {
-        setData(rentas);
-        initComponents();
-        myInitComponents();
-        revalidate();
-        repaint();
+    public void render(ArrayList<Renta> models) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
-    public ArrayList<ArrayList<String>> modelArrToStringArr2D(ArrayList<Renta> rentas) {
-        ArrayList<ArrayList<String>> array = new ArrayList<>();
-
-        for (Renta renta : rentas) {
-            String id = String.valueOf(renta.getIdRenta());
-            String costo = String.valueOf(renta.getCosto());
-            String fechaInicio = String.valueOf(renta.getFechaInicio());
-            String fechaFinal = String.valueOf(renta.getFechaFinal());
-            String placa = String.valueOf(renta.get_vehiculoPlaca());
-            String CUIRentador = String.valueOf(renta.get_clienteCUI());
-            array.add(new ArrayList<String>() {{
-                add(id);
-                add(costo);
-                add(fechaInicio);
-                add(fechaFinal);
-                add(placa);
-                add(CUIRentador);
-            }});
-        }
-        return array;
+    public ArrayList<ArrayList<String>> modelArrToStringArr2D(ArrayList<Renta> models) {
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
 
     @Override
@@ -132,11 +111,6 @@ public class Rentar extends View<Renta, ControllerRenta> {
 
     @Override
     public Renta arrStringToModel(ArrayList<String> tuples, boolean isFormFormat) {
-        if (!isFormFormat) return arrStringToModel(tuples);
-        Renta renta = arrStringToModel(tuples);
-        renta.setIdRenta(0);
-
-        return renta;
+        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
     }
-    // End of variables declaration//GEN-END:variables
 }
