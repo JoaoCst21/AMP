@@ -13,11 +13,13 @@ import org.angello.com.view.pages.VehiculosRentados;
 import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.time.LocalDate;
 
 /**
  * @author Deran
  */
 public class Menu extends javax.swing.JFrame {
+
     Principal principal = new Principal();
     Crear crear = Crear.getInstance();
     Rentar rentar = Rentar.getInstance();
@@ -42,6 +44,26 @@ public class Menu extends javax.swing.JFrame {
         deselectedButton(btn_vehiculos);
         deselectedButton(btn_clientes);
         deselectedButton(btn_usuarios);
+
+        LocalDate now = LocalDate.now();
+        int year = now.getYear();
+        int dia = now.getDayOfMonth();
+        int month = now.getMonthValue();
+        String[] meses = {
+            "Enero",
+            "Febrero",
+            "Marzo",
+            "Abril",
+            "Mayo",
+            "Junio",
+            "Julio",
+            "Agosto",
+            "Septiembre",
+            "Octubre",
+            "Noviembre",
+            "Diciembre"
+        };
+        fecha.setText("Hoy es " + dia + " de " + meses[month - 1] + " de " + year);
     }
 
     /**
@@ -51,7 +73,7 @@ public class Menu extends javax.swing.JFrame {
      */
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated
-    // Code">//GEN-BEGIN:initComponents
+    // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
         Background = new javax.swing.JPanel();
@@ -91,7 +113,7 @@ public class Menu extends javax.swing.JFrame {
 
         jLabel2.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Bienvenido + user");
+        jLabel2.setText("Bienvenido Admin");
         Header.add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 32, -1, 30));
 
         fecha.setFont(new java.awt.Font("Segoe UI", 0, 24)); // NOI18N
@@ -99,8 +121,7 @@ public class Menu extends javax.swing.JFrame {
         fecha.setText("Hoy es Lunes 26 de Septiembre de 2022");
         Header.add(fecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(49, 68, -1, 30));
 
-        jLabel15.setIcon(
-                new javax.swing.ImageIcon(getClass().getResource("/org/angello/com/resources/carro1(2) (1).png"))); // NOI18N
+        jLabel15.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/angello/com/resources/carro1(2) (1).png"))); // NOI18N
         Header.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(650, 30, -1, -1));
 
         Background.add(Header, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 20, 850, 140));
@@ -121,8 +142,7 @@ public class Menu extends javax.swing.JFrame {
         btn_prin.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         home_icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        home_icon.setIcon(
-                new javax.swing.ImageIcon(getClass().getResource("/org/angello/com/resources/home-outline.png"))); // NOI18N
+        home_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/angello/com/resources/home-outline.png"))); // NOI18N
         btn_prin.add(home_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 30, 30));
 
         jLabel5.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -143,8 +163,7 @@ public class Menu extends javax.swing.JFrame {
         btn_crear.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         create_icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        create_icon
-                .setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/angello/com/resources/carro2W2.png"))); // NOI18N
+        create_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/angello/com/resources/carro2W2.png"))); // NOI18N
         btn_crear.add(create_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 30, 30));
 
         jLabel17.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -157,16 +176,10 @@ public class Menu extends javax.swing.JFrame {
         btn_rentar.setBackground(new java.awt.Color(30, 81, 40));
         btn_rentar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_rentar.setPreferredSize(new java.awt.Dimension(270, 51));
-        btn_rentar.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_rentarMouseClicked(evt);
-            }
-        });
         btn_rentar.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         rent_icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        rent_icon.setIcon(
-                new javax.swing.ImageIcon(getClass().getResource("/org/angello/com/resources/carro1(2) (1) (1).png"))); // NOI18N
+        rent_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/angello/com/resources/carro1(2) (1) (1).png"))); // NOI18N
         btn_rentar.add(rent_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 30, 30));
 
         jLabel14.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -179,16 +192,10 @@ public class Menu extends javax.swing.JFrame {
         btn_vehiculos.setBackground(new java.awt.Color(30, 81, 40));
         btn_vehiculos.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_vehiculos.setPreferredSize(new java.awt.Dimension(270, 51));
-        btn_vehiculos.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_vehiculosMouseClicked(evt);
-            }
-        });
         btn_vehiculos.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         rents_icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        rents_icon.setIcon(
-                new javax.swing.ImageIcon(getClass().getResource("/org/angello/com/resources/file-chart.png"))); // NOI18N
+        rents_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/angello/com/resources/carro1(2) (1) (1).png"))); // NOI18N
         btn_vehiculos.add(rents_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 30, 30));
 
         jLabel8.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -201,16 +208,10 @@ public class Menu extends javax.swing.JFrame {
         btn_clientes.setBackground(new java.awt.Color(30, 81, 40));
         btn_clientes.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_clientes.setPreferredSize(new java.awt.Dimension(270, 51));
-        btn_clientes.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_clientesMouseClicked(evt);
-            }
-        });
         btn_clientes.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         clients_icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        clients_icon.setIcon(
-                new javax.swing.ImageIcon(getClass().getResource("/org/angello/com/resources/account-multiple.png"))); // NOI18N
+        clients_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/angello/com/resources/account-multiple.png"))); // NOI18N
         btn_clientes.add(clients_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 30, 30));
 
         jLabel10.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -223,16 +224,10 @@ public class Menu extends javax.swing.JFrame {
         btn_usuarios.setBackground(new java.awt.Color(30, 81, 40));
         btn_usuarios.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         btn_usuarios.setPreferredSize(new java.awt.Dimension(270, 51));
-        btn_usuarios.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseClicked(java.awt.event.MouseEvent evt) {
-                btn_usuariosMouseClicked(evt);
-            }
-        });
         btn_usuarios.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         users_icon.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        users_icon.setIcon(
-                new javax.swing.ImageIcon(getClass().getResource("/org/angello/com/resources/miniUserIconModify.png"))); // NOI18N
+        users_icon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/org/angello/com/resources/miniUserIconModify.png"))); // NOI18N
         btn_usuarios.add(users_icon, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 10, 30, 30));
 
         jLabel4.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
@@ -249,24 +244,26 @@ public class Menu extends javax.swing.JFrame {
         javax.swing.GroupLayout contentLayout = new javax.swing.GroupLayout(content);
         content.setLayout(contentLayout);
         contentLayout.setHorizontalGroup(
-                contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 850, Short.MAX_VALUE));
+            contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 850, Short.MAX_VALUE)
+        );
         contentLayout.setVerticalGroup(
-                contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGap(0, 620, Short.MAX_VALUE));
+            contentLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 620, Short.MAX_VALUE)
+        );
 
         Background.add(content, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 160, 850, 620));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(Background, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Background, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
         layout.setVerticalGroup(
-                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addComponent(Background, javax.swing.GroupLayout.PREFERRED_SIZE,
-                                javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE));
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(Background, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
