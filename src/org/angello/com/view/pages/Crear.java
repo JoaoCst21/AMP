@@ -130,7 +130,6 @@ public class Crear extends View<TipoVehiculo, ControllerTipoVehiculos> {
 
     @Override
     public TipoVehiculo arrStringToModel(ArrayList<String> tuples) {
-
         int id = Integer.parseInt(String.valueOf(table.getValueAt(table.getSelectedRow(), 0)));
         String name = tuples.get(0);
 

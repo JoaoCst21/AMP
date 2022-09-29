@@ -20,7 +20,7 @@ import java.awt.Color;
 public class Menu extends javax.swing.JFrame {
     Principal principal = new Principal();
     Crear crear = Crear.getInstance();
-    Rentar rentar = new Rentar();
+    Rentar rentar = Rentar.getInstance();
     VehiculosRentados rentados = new VehiculosRentados();
     Clientes clientes = new Clientes();
     Usuarios usuarios = new Usuarios();
