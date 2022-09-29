@@ -121,11 +121,11 @@ public class Rentar extends View<Renta, ControllerRenta> {
     @Override
     public Renta arrStringToModel(ArrayList<String> tuples) {
         int id = Integer.parseInt(String.valueOf(table.getValueAt(table.getSelectedRow(), 0)));
-        Double costo = Double.valueOf(tuples.get(1));
-        Date fechaInicio = Date.valueOf(tuples.get(2));
-        Date fechaFinal = Date.valueOf(tuples.get(3));
-        String placa = tuples.get(4);
-        Long CUI = Long.valueOf(tuples.get(5));
+        Double costo = Double.valueOf(tuples.get(0));
+        Date fechaInicio = Date.valueOf(tuples.get(1));
+        Date fechaFinal = Date.valueOf(tuples.get(2));
+        String placa = tuples.get(3);
+        Long CUI = Long.valueOf(tuples.get(4));
 
         return new Renta(id, costo, fechaInicio, fechaFinal, placa, CUI);
     }

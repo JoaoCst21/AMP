@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class ClienteDAO extends DAO<Cliente> {
+public class ClienteDAO extends DAO<Cliente, Long> {
     public ClienteDAO() {
         super("sp_saveCliente(?,?,?,?,?)", "sp_searchCliente(?)", "sp_readAllCliente()", "sp_updateCliente(?,?,?,?,?)", "sp_deleteCliente(?)");
     }
@@ -29,5 +29,10 @@ public class ClienteDAO extends DAO<Cliente> {
         sp.setInt(3, cliente.getTelefono());
         sp.setString(4, cliente.getEmail());
         sp.setLong(5, cliente.getCUI());
+    }
+
+    @Override
+    public void setIdParam(PreparedStatement sp, Long id) throws SQLException {
+        sp.setLong(1, id);
     }
 }

@@ -5,7 +5,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-public abstract class DAO<Class> implements CRUD<Class> {
+public abstract class DAO<Class, T> implements CRUD<Class, T> {
     // Attributes
     private String saveProcedure;
     private String readProcedure;
@@ -35,6 +35,7 @@ public abstract class DAO<Class> implements CRUD<Class> {
 
     public abstract void setProcedureParams(PreparedStatement sp, Class object) throws SQLException;
 
+    public abstract void setIdParam(PreparedStatement sp, T id) throws SQLException;
 
     @Override
     public void save(Class object) throws Exception {
@@ -49,10 +50,10 @@ public abstract class DAO<Class> implements CRUD<Class> {
     }
 
     @Override
-    public Class search(int id) throws Exception {
+    public Class search(T id) throws Exception {
         try {
             PreparedStatement sp = prepareCall(readProcedure);
-            sp.setInt(1, id);
+            setIdParam(sp, id);
             ResultSet resultSet = sp.executeQuery();
             while (resultSet.next()) {
                 return resulsetToObject(resultSet);
@@ -94,10 +95,10 @@ public abstract class DAO<Class> implements CRUD<Class> {
     }
 
     @Override
-    public void delete(int id) throws Exception {
+    public void delete(T id) throws Exception {
         try {
             PreparedStatement sp = prepareCall(deleteProcedure);
-            sp.setInt(1, id);
+            setIdParam(sp, id);
             sp.execute();
         } catch (SQLException e) {
             printError(e);

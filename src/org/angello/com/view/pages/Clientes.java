@@ -4,18 +4,23 @@
  */
 package org.angello.com.view.pages;
 
+import org.angello.com.controller.ControllerCliente;
+import org.angello.com.model.entities.Cliente;
+
+import java.util.ArrayList;
+
 /**
- *
  * @author Deran
  */
-public class Clientes extends javax.swing.JPanel {
+public class Clientes extends View<Cliente, ControllerCliente> {
+    public Clientes() {
+        super(new String[]{"CUI", "Nombre", "Apellido", "Telefono", "Email"}, "Clientes");
+    }
 
     /**
      * Creates new form Clientes
      */
-    public Clientes() {
-        initComponents();
-    }
+
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -38,33 +43,33 @@ public class Clientes extends javax.swing.JPanel {
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 625, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel1)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 625, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(jLabel1)
+                                        .addGap(0, 0, Short.MAX_VALUE)))
         );
         jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 507, Short.MAX_VALUE)
-            .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                .addGroup(jPanel1Layout.createSequentialGroup()
-                    .addGap(0, 0, Short.MAX_VALUE)
-                    .addComponent(jLabel1)
-                    .addGap(0, 0, Short.MAX_VALUE)))
+                jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGap(0, 507, Short.MAX_VALUE)
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(0, 0, Short.MAX_VALUE)
+                                        .addComponent(jLabel1)
+                                        .addGap(0, 0, Short.MAX_VALUE)))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
     }// </editor-fold>//GEN-END:initComponents
 
@@ -73,4 +78,57 @@ public class Clientes extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     // End of variables declaration//GEN-END:variables
+
+    @Override
+    public void render(ArrayList<Cliente> clientes) {
+        setData(clientes);
+        initComponents();
+        myInitComponents();
+        revalidate();
+        repaint();
+
+    }
+
+    @Override
+    public ArrayList<ArrayList<String>> modelArrToStringArr2D(ArrayList<Cliente> clientes) {
+        ArrayList<ArrayList<String>> array = new ArrayList<>();
+
+        for (Cliente cliente : clientes) {
+            String CUI = String.valueOf(cliente.getCUI());
+            String nombre = String.valueOf(cliente.getNombre());
+            String apellido = String.valueOf(cliente.getApellido());
+            String telefono = String.valueOf(cliente.getTelefono());
+            String email = String.valueOf(cliente.getEmail());
+
+            array.add(new ArrayList<String>() {{
+                add(CUI);
+                add(nombre);
+                add(apellido);
+                add(telefono);
+                add(email);
+            }});
+        }
+        return array;
+    }
+
+    @Override
+    public Cliente arrStringToModel(ArrayList<String> tuples) {
+        Long CUI = Long.valueOf(String.valueOf(table.getValueAt(table.getSelectedRow(), 0)));
+        String nombre = tuples.get(0);
+        String apellido = tuples.get(1);
+        int telefono = Integer.parseInt(tuples.get(2));
+        String email = tuples.get(3);
+
+        return new Cliente(CUI, nombre, apellido, telefono, email);
+    }
+
+    @Override
+    public Cliente arrStringToModel(ArrayList<String> tuples, boolean isFormFormat) {
+        if (!isFormFormat) return arrStringToModel(tuples);
+        Cliente cliente = arrStringToModel(tuples);
+        cliente.setCUI(0L);
+
+        return cliente;
+    }
+
 }
