@@ -91,15 +91,7 @@ public abstract class View<Model, Controller extends org.angello.com.controller.
         });
     }
 
-    public ArrayList<String> getSelectedTuple() {
-        ArrayList<String> tuple = new ArrayList<>();
-        for (int i = 0; i < column.length; i++) {
-            if (i == 0) continue;
-            tuple.add((String) table.getValueAt(table.getSelectedRow(), i));
-        }
-
-        return tuple;
-    }
+    public abstract ArrayList<String> getSelectedTuple();
 
     public void addHandlerToSave(Controller controller) {
         btnCreate.addActionListener(e -> {
@@ -111,14 +103,7 @@ public abstract class View<Model, Controller extends org.angello.com.controller.
         });
     }
 
-    public String[] getFormFieldsTitles() {
-        ArrayList<String> titles = new ArrayList<>();
-        for (int i = 0; i < getColumn().length; i++) {
-            if (i == 0) continue;
-            titles.add(getColumn()[i]);
-        }
-        return titles.toArray(new String[0]);
-    }
+    protected abstract String[] getFormFieldsTitles();
 
     public abstract void render(ArrayList<Model> models);
 

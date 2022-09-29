@@ -56,6 +56,8 @@ public class Form extends JPanel {
         for (int i = 0; i < data.size(); i++) {
             String key = fields[i];
             String text = data.get(i);
+            System.out.println(key);
+            System.out.println(text);
             inputs.get(key).setText(text);
         }
     }

@@ -114,6 +114,24 @@ public class VehiculosRentados extends View<Vehiculo, ControllerVehiculo> {
 
 
     @Override
+    public ArrayList<String> getSelectedTuple() {
+        ArrayList<String> tuple = new ArrayList<>();
+        for (int i = 0; i < column.length; i++) {
+            tuple.add((String) table.getValueAt(table.getSelectedRow(), i));
+        }
+        return tuple;
+    }
+
+    @Override
+    protected String[] getFormFieldsTitles() {
+        ArrayList<String> titles = new ArrayList<>();
+        for (int i = 0; i < getColumn().length; i++) {
+            titles.add(getColumn()[i]);
+        }
+        return titles.toArray(new String[0]);
+    }
+
+    @Override
     public void render(ArrayList<Vehiculo> vehiculos) {
         setData(vehiculos);
         initComponents();
@@ -137,7 +155,6 @@ public class VehiculosRentados extends View<Vehiculo, ControllerVehiculo> {
                 add(marca);
                 add(color);
                 add(linea);
-                add(placa);
                 add(tipoVehiculo);
             }});
         }
@@ -157,11 +174,7 @@ public class VehiculosRentados extends View<Vehiculo, ControllerVehiculo> {
 
     @Override
     public Vehiculo arrStringToModel(ArrayList<String> tuples, boolean isFormFormat) {
-        if (!isFormFormat) return arrStringToModel(tuples);
-        Vehiculo vehiculo = arrStringToModel(tuples);
-        vehiculo.setPlaca("");
-
-        return vehiculo;
+        return arrStringToModel(tuples);
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

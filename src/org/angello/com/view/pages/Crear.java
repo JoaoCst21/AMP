@@ -28,6 +28,26 @@ public class Crear extends View<TipoVehiculo, ControllerTipoVehiculos> {
         super(new String[]{"ID", "Tipo vehiculo"}, "Tipo Vehiculo");
     }
 
+    @Override
+    public ArrayList<String> getSelectedTuple() {
+        ArrayList<String> tuple = new ArrayList<>();
+        for (int i = 0; i < column.length; i++) {
+            if (i == 0) continue;
+            tuple.add((String) table.getValueAt(table.getSelectedRow(), i));
+        }
+        return tuple;
+    }
+
+    @Override
+    protected String[] getFormFieldsTitles() {
+        ArrayList<String> titles = new ArrayList<>();
+        for (int i = 0; i < getColumn().length; i++) {
+            if (i == 0) continue;
+            titles.add(getColumn()[i]);
+        }
+        return titles.toArray(new String[0]);
+    }
+
     // Its Necessary Because of The initComponent method, that this method is implemented here
     @Override
     public void render(ArrayList<TipoVehiculo> tipoVehiculos) {

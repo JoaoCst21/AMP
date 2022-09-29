@@ -59,6 +59,7 @@ public abstract class Controller<Model, T, Dao extends DAO<Model, T>, PanelView 
         try {
             ModalWindow modalWindow = view.getModalUploadForm();
             modalWindow.getForm().validateFields();
+            System.out.println(modalWindow.getForm().getFormData());
             Model model = view.arrStringToModel(modalWindow.getForm().getFormData(), true);
             // save data into Model
             dao.save(model);
@@ -74,6 +75,7 @@ public abstract class Controller<Model, T, Dao extends DAO<Model, T>, PanelView 
         try {
             ModalWindow modalWindow = view.getModalModifiedForm();
             modalWindow.getForm().validateFields();
+            System.out.println(modalWindow.getForm().getFormData());
             Model model = view.arrStringToModel(modalWindow.getForm().getFormData(), false);
             // update data into Model
             dao.update(model);
