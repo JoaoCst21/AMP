@@ -7,7 +7,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class RentasDAO extends DAO<Renta> {
+public class RentasDAO extends DAO<Renta, Integer> {
     public RentasDAO() {
         super("sp_saveRenta(?,?,?,?,?)", "sp_searchRenta(?)", "sp_readAllRenta()", "sp_updateRenta(?,?,?,?,?,?)", "sp_deleteRenta(?)");
     }
@@ -33,5 +33,10 @@ public class RentasDAO extends DAO<Renta> {
         sp.setLong(5, renta.get_clienteCUI());
         if (renta.getIdRenta() == 0) return;
         sp.setInt(6, renta.getIdRenta());
+    }
+
+    @Override
+    public void setIdParam(PreparedStatement sp, Integer id) throws SQLException {
+        sp.setInt(1, id);
     }
 }

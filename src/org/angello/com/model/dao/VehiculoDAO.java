@@ -6,7 +6,7 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-public class VehiculoDAO extends DAO<Vehiculo> {
+public class VehiculoDAO extends DAO<Vehiculo, String> {
     public VehiculoDAO() {
         super("sp_saveVehiculo(?,?,?,?,?)", "sp_searchVehiculo(?)", "sp_readAllVehiculo()", "sp_updateVehiculo(?,?,?,?,?)", "sp_deleteVehiculo(?)");
     }
@@ -29,5 +29,10 @@ public class VehiculoDAO extends DAO<Vehiculo> {
         sp.setString(3, vehiculo.getLinea());
         sp.setInt(4, vehiculo.get_tipoVehiculo());
         sp.setString(5, vehiculo.getPlaca());
+    }
+
+    @Override
+    public void setIdParam(PreparedStatement sp, String id) throws SQLException {
+        sp.setString(1, id);
     }
 }
