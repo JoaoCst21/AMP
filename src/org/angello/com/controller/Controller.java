@@ -6,7 +6,7 @@ import org.angello.com.view.pages.View;
 
 import javax.swing.JOptionPane;
 
-public abstract class Controller<Model, Dao extends DAO, PanelView extends View<Model, ?>> {
+public abstract class Controller<Model, T, Dao extends DAO<Model, T>, PanelView extends View<Model, ?>> {
     private final Dao dao;
     protected final PanelView view;
     private final String titleError;
@@ -19,6 +19,8 @@ public abstract class Controller<Model, Dao extends DAO, PanelView extends View<
     }
 
     protected abstract void subscribe();
+
+    protected abstract T getPrimaryKey();
 
     public void controlTableClick(int option) {
         try {
@@ -86,9 +88,8 @@ public abstract class Controller<Model, Dao extends DAO, PanelView extends View<
     public void controllerDeleteData() {
         try {
             //// DEBUG
-            int id = Integer.parseInt(String.valueOf(view.getTable().getValueAt(view.getTable().getSelectedRow(), 0)));
             // save data into Model
-            dao.delete(id);
+            dao.delete(getPrimaryKey());
             // update PanelView extends View
             view.update(dao.readAll(), false);
         } catch (Exception e) {

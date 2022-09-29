@@ -92,17 +92,44 @@ public class VehiculosRentados extends View<Vehiculo, ControllerVehiculo> {
 
     @Override
     public ArrayList<ArrayList<String>> modelArrToStringArr2D(ArrayList<Vehiculo> vehiculos) {
-        return null;
+        ArrayList<ArrayList<String>> array = new ArrayList<>();
+
+        for (Vehiculo vehiculo : vehiculos) {
+            String placa = String.valueOf(vehiculo.getPlaca());
+            String marca = String.valueOf(vehiculo.getMarca());
+            String color = String.valueOf(vehiculo.getColor());
+            String linea = String.valueOf(vehiculo.getLinea());
+            String tipoVehiculo = String.valueOf(vehiculo.get_tipoVehiculo());
+            array.add(new ArrayList<String>() {{
+                add(placa);
+                add(marca);
+                add(color);
+                add(linea);
+                add(placa);
+                add(tipoVehiculo);
+            }});
+        }
+        return array;
     }
 
     @Override
     public Vehiculo arrStringToModel(ArrayList<String> tuples) {
-        return null;
+        String placa = tuples.get(0);
+        String marca = tuples.get(1);
+        String color = tuples.get(2);
+        String linea = tuples.get(3);
+        int tipoVehiculo = Integer.parseInt(tuples.get(4));
+
+        return new Vehiculo(placa, marca, color, linea, tipoVehiculo);
     }
 
     @Override
     public Vehiculo arrStringToModel(ArrayList<String> tuples, boolean isFormFormat) {
-        return null;
+        if (!isFormFormat) return arrStringToModel(tuples);
+        Vehiculo vehiculo = arrStringToModel(tuples);
+        vehiculo.setPlaca("");
+
+        return vehiculo;
     }
     // End of variables declaration//GEN-END:variables
 }
