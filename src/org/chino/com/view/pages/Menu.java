@@ -26,7 +26,6 @@ public class Menu extends javax.swing.JFrame {
     public Menu() {
         initComponents();
         this.setLocationRelativeTo(null);
-
         // Adding panels to the main panel
         addPanel(principal);
 
